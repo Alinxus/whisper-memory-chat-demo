@@ -332,7 +332,7 @@ export class WhisperMemoryService implements MemoryService {
         .slice(-4)
         .map((message) => ({
           content: `${message.role}: ${message.content.trim().slice(0, 700)}`,
-          memory_type: "event",
+          memory_type: "event" as const,
           user_id: args.userId,
           session_id: args.sessionId,
           importance: message.role === "user" ? 0.9 : 0.72,

@@ -159,9 +159,9 @@ export default function ChatConsole() {
       const extracted = assistantMessage.metrics?.extractedCount ?? 0;
       const contextCount = assistantMessage.metrics?.contextCount ?? 0;
       const memorySearchLatency =
-        assistantMessage.metrics?.memorySearchLatencyMs ?? assistantMessage.metrics?.contextLatencyMs;
+        assistantMessage.metrics?.memorySearchLatencyMs ?? assistantMessage.metrics?.contextLatencyMs ?? 0;
       const memoryWriteLatency =
-        assistantMessage.metrics?.memoryWriteLatencyMs ?? assistantMessage.metrics?.captureLatencyMs;
+        assistantMessage.metrics?.memoryWriteLatencyMs ?? assistantMessage.metrics?.captureLatencyMs ?? 0;
       const whisperLatency = assistantMessage.metrics?.whisperLatencyMs ?? memorySearchLatency + memoryWriteLatency;
       const llmLatency = assistantMessage.metrics?.generationLatencyMs;
 
