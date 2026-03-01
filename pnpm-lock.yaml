@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@usewhisper/sdk':
-        specifier: 2.2.0
-        version: 2.2.0
+        specifier: 2.2.1
+        version: 2.2.1
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1033,8 +1033,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@usewhisper/sdk@2.2.0':
-    resolution: {integrity: sha512-VteNhLN6KaABUI2lVMFqr0cUeSI8EiGpxaLDZsE1V4fG9i4o4NJ63vcVbGMPJ4+fd+2ynulFjzjtQmqkEASRjA==}
+  '@usewhisper/sdk@2.2.1':
+    resolution: {integrity: sha512-3tDrcABRSl0ptlpISloaz0Efnsnx6eDd3uQIRwnJuMcXVrf6Jhu8ktOtRkEnizsItjpP4DlyR1fLqad6fvq/9g==}
     engines: {node: '>=18.0.0'}
 
   '@vitest/coverage-v8@4.0.18':
@@ -3261,7 +3261,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@usewhisper/sdk@2.2.0': {}
+  '@usewhisper/sdk@2.2.1': {}
 
   '@vitest/coverage-v8@4.0.18(vitest@4.0.18(@types/node@20.19.35)(jiti@2.6.1)(lightningcss@1.31.1)(tsx@4.21.0))':
     dependencies:
