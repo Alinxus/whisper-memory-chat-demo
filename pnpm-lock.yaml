@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@usewhisper/sdk':
-        specifier: file:..\context-new\sdk-package\usewhisper-sdk-2.2.1.tgz
-        version: file:../context-new/sdk-package/usewhisper-sdk-2.2.1.tgz
+        specifier: 2.2.0
+        version: 2.2.0
       next:
         specifier: 16.1.6
         version: 16.1.6(@babel/core@7.29.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -1033,9 +1033,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@usewhisper/sdk@file:../context-new/sdk-package/usewhisper-sdk-2.2.1.tgz':
-    resolution: {integrity: sha512-aVi7REGCUwqA57HlpPVmnbNfTBk34abZlIE9AO+5s5fqYVuZns6Zj7Feage6rnvDkCJxD1GcAcYbbUK3OEn5Ag==, tarball: file:../context-new/sdk-package/usewhisper-sdk-2.2.1.tgz}
-    version: 2.2.1
+  '@usewhisper/sdk@2.2.0':
+    resolution: {integrity: sha512-VteNhLN6KaABUI2lVMFqr0cUeSI8EiGpxaLDZsE1V4fG9i4o4NJ63vcVbGMPJ4+fd+2ynulFjzjtQmqkEASRjA==}
     engines: {node: '>=18.0.0'}
 
   '@vitest/coverage-v8@4.0.18':
@@ -3262,7 +3261,7 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@usewhisper/sdk@file:../context-new/sdk-package/usewhisper-sdk-2.2.1.tgz': {}
+  '@usewhisper/sdk@2.2.0': {}
 
   '@vitest/coverage-v8@4.0.18(vitest@4.0.18(@types/node@20.19.35)(jiti@2.6.1)(lightningcss@1.31.1)(tsx@4.21.0))':
     dependencies:
