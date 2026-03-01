@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Whisper Memory Chat Demo
 
-## Getting Started
+ChatGPT-style UI demo that uses `@usewhisper/sdk` for conversation memory:
 
-First, run the development server:
+- Memory-aware chat turns (`Whisper.getContext` + `Whisper.captureSession`)
+- Memory inspector with edit / forget / clear actions (`WhisperContext.memory.*`)
+- Per-user isolation demo (`demo-alex`, `demo-riley`, `demo-taylor`)
+- Turn-level latency metrics and event log
+- Multi-user simulation tests for isolation and p95 latency
+
+## Quick Start
+
+1. Install dependencies:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Configure environment:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Set at minimum:
+- `WHISPER_API_KEY`
+- `WHISPER_PROJECT`
 
-## Learn More
+Optional:
+- `OPENAI_API_KEY` for real model replies
+- Without OpenAI key, the app uses a local fallback response generator
 
-To learn more about Next.js, take a look at the following resources:
+3. Run the app:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Open `http://localhost:3000`.
 
-## Deploy on Vercel
+## Testing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Run full tests:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm test
+```
+
+Run focused user simulation + latency test:
+
+```bash
+pnpm test:latency
+```
+
+## Demo Flow (2-3 minutes)
+
+1. Pick `demo-alex` and state preferences in chat.
+2. Ask a new question and show memory chips under the assistant reply.
+3. Open memory cards on the right, edit one memory, and re-ask.
+4. Click `Forget` on one memory and show behavior change.
+5. Switch user to `demo-riley` to show memory isolation.
+
+## Project Structure
+
+- `src/components/chat-console.tsx` - main UI
+- `src/app/api/chat/route.ts` - chat turn endpoint
+- `src/app/api/memory/route.ts` - list/clear user memories
+- `src/app/api/memory/[memoryId]/route.ts` - edit/delete single memory
+- `src/lib/memory-service.ts` - Whisper SDK integration layer
+- `src/lib/chat-engine.ts` - reusable chat orchestration
+- `tests/*.test.ts` - isolation + latency simulations
+
+## Notes
+
+- This demo keeps conversation history in memory for speed.
+- For production, replace in-memory history with Redis/Postgres and add auth per user.
